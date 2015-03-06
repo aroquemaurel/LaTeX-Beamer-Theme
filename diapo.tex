@@ -20,6 +20,9 @@
 \newcommand{\secondlogo}{images/ups.jpg}
 \newcommand{\footsubject}{My subject} % Subject in footer
 
+\newcommand{\rgbcolortheme}{30,101, 30}
+
+\definecolor{vert}{rgb}{0,0.4,0}
 \mode<presentation> {
   \usetheme{UNLTheme}
 }
@@ -33,7 +36,9 @@ People A\\
 People B\\
 People C
 ] % 
-{People A\\ People B\\ People C}
+{People A\\ 
+People B\\ 
+People C}
 
 \institute[] 
 {
@@ -55,10 +60,12 @@ People C
 }
 
 
-
 \begin{document}
 	\begin{frame}
 		\titlepage
+	\end{frame}
+	\begin{frame}
+		\tableofcontents
 	\end{frame}
 	\begin{frame}{Introduction}
 		\begin{itemize}

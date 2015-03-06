@@ -257,8 +257,8 @@
 %border: \vskip-\paperwidth\hskip\beamer@sidebarwidth\pgfuseshading{beamer@sideborder}
 }
 % End Shadow
-\definecolor{theme}{RGB}{75,106,149}
-\usecolortheme[RGB={50,50,101}]{structure}
+\definecolor{theme}{RGB}{50,50,101}
+\usecolortheme[RGB={\rgbcolortheme}]{structure}
 
 % Complete color themes:
 % albatross, beetle, crane, dove, fly, seagull
@@ -419,12 +419,8 @@
 \definecolor{UNL@VeryLightGrey}{RGB}{225,225,225}
 
 % RE-DEFINE MY COLORS
-\definecolor{UNL@Frametitle}{RGB}{50,50,101}
-\definecolor{UNL@TitlePage}{RGB}{50,50,101}
-\definecolor{UNL@Title1}{RGB}{50,50,101}
-\definecolor{UNL@Title2}{RGB}{57,138,199}
-\definecolor{UNL@Title3}{RGB}{152,191,12}
-\definecolor{UNL@Title4}{RGB}{253,114,1}
+\definecolor{UNL@Frametitle}{RGB}{\rgbcolortheme}
+\definecolor{UNL@TitlePage}{RGB}{\rgbcolortheme}
 \definecolor{UNL@Cream}{RGB}{245,240,219}
 
 % We enforce conformity at UNL!
