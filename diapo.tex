@@ -16,6 +16,9 @@
 \makeatletter
 \hypersetup{pdfpagemode=FullScreen}
 
+\newcommand{\firstlogo}{images/FACT_official.png}
+\newcommand{\secondlogo}{images/ups.jpg}
+
 \mode<presentation> {
   \usetheme{UNLTheme}
 }
@@ -31,7 +34,7 @@ People C
 ] % 
 {People A\\ People B\\ People C}
 
-\institute[] % (facultatif mais g\'en\'eralement n\'ecessaire)
+\institute[] 
 {
   Universit\'e Toulouse III -- Paul Sabatier \\
   M1 Informatique -- Développement Logiciel 
@@ -40,7 +43,7 @@ People C
 \date[ ~ ~ ~ 05 / 03 / 2015] % In footer 
 {Vendredi 06 Mars 2015}
 
- \pgfdeclareimage[width=2.5cm]{le-logo}{images/FACT_official.png}
+ \pgfdeclareimage[width=2.5cm]{le-logo}{\firstlogo}
  \logo{\pgfuseimage{le-logo}}
 
  % Toc for each section
@@ -49,8 +52,6 @@ People C
     \tableofcontents[currentsection]
   \end{frame}
 }
-% If you want slides is uncover 1 by 1, see page 74 of beamer suer manual
-%\beamerdefaultoverlayspecification{<+->}
 
 \setbeamertemplate{footline}{%
 	\leavevmode%
