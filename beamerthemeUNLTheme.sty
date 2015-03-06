@@ -129,7 +129,7 @@
     \beamer@tempdim=\beamer@sidebarwidth%
     \advance\beamer@tempdim by -6pt%
     {\usebeamerfont{title in sidebar}%
-     \vspace{4px}\includegraphics[width=2.4cm]{ups.jpg}
+     \vspace{4px}\includegraphics[width=2.4cm]{\secondlogo}
       \vskip1.5em%
       \hskip3pt%
       \usebeamercolor[fg]{title in sidebar}%
@@ -438,3 +438,24 @@
 %\def\mathfamilydefault{\rmdefault}\beamer@sansmathfalse
 \usefonttheme[onlymath]{serif}
 \beamertemplatetheoremsunnumbered  %This suppresses theorem numbers
+
+\setbeamertemplate{footline}{%
+	\leavevmode%
+	\hbox{\hspace*{-0.6cm}
+	\begin{beamercolorbox}[wd=.19\paperwidth,ht=2.25ex,dp=1ex,center]{section in head/foot}%
+		\usebeamerfont{section in head/foot}\insertshortdate{}
+	\end{beamercolorbox}%
+
+	\begin{beamercolorbox}[wd=.76\paperwidth,ht=2.25ex,dp=1ex,center]{section in head/foot}%
+		\insertprogressbar
+		\usebeamerfont{section in head/foot} \footsubject{} 
+		\end{beamercolorbox}%
+
+		\begin{beamercolorbox}[wd=.10\paperwidth,ht=2.27ex,dp=1ex,right]{section in head/foot}%
+			\usebeamerfont{section in head/foot}\hspace*{2em}
+			\hspace{-10px}\textbf{\insertframenumber{}} \hspace*{2ex}
+		\end{beamercolorbox}}%
+		\vskip0pt%
+		}
+
+\setbeamertemplate{navigation symbols}{}

@@ -18,6 +18,7 @@
 
 \newcommand{\firstlogo}{images/FACT_official.png}
 \newcommand{\secondlogo}{images/ups.jpg}
+\newcommand{\footsubject}{My subject} % Subject in footer
 
 \mode<presentation> {
   \usetheme{UNLTheme}
@@ -53,26 +54,7 @@ People C
   \end{frame}
 }
 
-\setbeamertemplate{footline}{%
-	\leavevmode%
-	\hbox{\hspace*{-0.6cm}
-	\begin{beamercolorbox}[wd=.19\paperwidth,ht=2.25ex,dp=1ex,center]{section in head/foot}%
-		\usebeamerfont{section in head/foot}\insertshortdate{}
-	\end{beamercolorbox}%
 
-	\begin{beamercolorbox}[wd=.76\paperwidth,ht=2.25ex,dp=1ex,center]{section in head/foot}%
-		\insertprogressbar
-		\usebeamerfont{section in head/foot} Problematic or subject 
-		\end{beamercolorbox}%
-
-		\begin{beamercolorbox}[wd=.10\paperwidth,ht=2.27ex,dp=1ex,right]{section in head/foot}%
-			\usebeamerfont{section in head/foot}\hspace*{2em}
-			\hspace{-10px}\textbf{\insertframenumber{}} \hspace*{2ex}
-		\end{beamercolorbox}}%
-		\vskip0pt%
-		}
-
-\setbeamertemplate{navigation symbols}{}
 
 \begin{document}
 	\begin{frame}
