@@ -1,0 +1,127 @@
+\documentclass{beamer}
+\usepackage{listings}
+\usepackage{mdframed}
+\usepackage{tikz}
+\usepackage{pdfpages}
+
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+
+\makeatletter
+\hypersetup{pdfpagemode=FullScreen}
+
+\mode<presentation> {
+  \usetheme{UNLTheme}
+}
+
+\title[] % Not required. If title is too long 
+{A beautiful title}
+\subtitle{A subtitle}
+
+\author[
+People A\\
+People B\\
+People C
+] % 
+{People A\\ People B\\ People C}
+
+\institute[] % (facultatif mais g\'en\'eralement n\'ecessaire)
+{
+  Universit\'e Toulouse III -- Paul Sabatier \\
+  M1 Informatique -- Développement Logiciel 
+  \vspace{-10px}
+}
+\date[ ~ ~ ~ 05 / 03 / 2015] % In footer 
+{Vendredi 06 Mars 2015}
+
+ \pgfdeclareimage[width=2.5cm]{le-logo}{images/FACT_official.png}
+ \logo{\pgfuseimage{le-logo}}
+
+ % Toc for each section
+\AtBeginSection[] {
+  \begin{frame}<beamer>{Ligne directrice}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+% If you want slides is uncover 1 by 1, see page 74 of beamer suer manual
+%\beamerdefaultoverlayspecification{<+->}
+
+\setbeamertemplate{footline}{%
+	\leavevmode%
+	\hbox{\hspace*{-0.6cm}
+	\begin{beamercolorbox}[wd=.19\paperwidth,ht=2.25ex,dp=1ex,center]{section in head/foot}%
+		\usebeamerfont{section in head/foot}\insertshortdate{}
+	\end{beamercolorbox}%
+
+	\begin{beamercolorbox}[wd=.76\paperwidth,ht=2.25ex,dp=1ex,center]{section in head/foot}%
+		\insertprogressbar
+		\usebeamerfont{section in head/foot} Problematic or subject 
+		\end{beamercolorbox}%
+
+		\begin{beamercolorbox}[wd=.10\paperwidth,ht=2.27ex,dp=1ex,right]{section in head/foot}%
+			\usebeamerfont{section in head/foot}\hspace*{2em}
+			\hspace{-10px}\textbf{\insertframenumber{}} \hspace*{2ex}
+		\end{beamercolorbox}}%
+		\vskip0pt%
+		}
+
+\setbeamertemplate{navigation symbols}{}
+
+\begin{document}
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	\begin{frame}{Introduction}
+		\begin{itemize}
+			\item \ldots 
+			\item \ldots 
+			\item \ldots
+		\end{itemize}
+	\end{frame}
+	\section{First section}
+	\subsection{First subsection}
+	\begin{frame}{Slide A}
+		
+	\end{frame}
+	\subsection{Second subsection}
+
+	\begin{frame}{Slide B}
+		\begin{block}{A super block}
+			A block	
+		\end{block}
+		\begin{alertblock}{Alert, Alert !}
+			An alert block
+		\end{alertblock}
+
+		\begin{exampleblock}{Coooool}
+			An example block	
+		\end{exampleblock}
+	\end{frame}
+	\section{Second section}
+	\subsection{First subsection}
+	\begin{frame}{Slide B}
+	\end{frame}
+	\subsection{Second subsection}
+	\begin{frame}{Slide B}
+	\end{frame}
+	\section{Last section}
+	\subsection{First subsection}
+	\begin{frame}{Slide B}
+	\end{frame}
+	\subsection{Second subsection}
+	\begin{frame}{Slide B}
+	\end{frame}
+	\section*{Conclude}
+	\begin{frame}{Conclude}
+	\end{frame}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+\end{document}
