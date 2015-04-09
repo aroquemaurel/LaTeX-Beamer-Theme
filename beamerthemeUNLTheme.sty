@@ -328,28 +328,40 @@
   \end{frame}
   }%
 }
+\newcount\progressbar@tmpcounta% auxiliary counter
+\newcount\progressbar@tmpcountb% auxiliary counter
+\newdimen\progressbar@pbht %progressbar height
+\newdimen\progressbar@pbwd %progressbar width
+\newdimen\progressbar@tmpdim % auxiliary dimension
 
-\newcommand{\insertprogressbar}{%
-\begin{minipage}{0.75\textwidth}
-	\color{theme}
-  \hspace*{-\beamer@leftmargin}%
-  \hspace{10px}
-  \rlap{\rule{\dimexpr
-		  \beamer@startpageofframe
-		  \dimexpr \beamer@rightmargin+\textwidth\relax/\beamer@endpageofdocument 
-		  }{0.0pt}
-		  \hspace{-20px}
-		  \tiny{$\blacktriangledown$}
-  }
+\progressbar@pbwd=\linewidth
+\progressbar@pbht=1.5px
 
-  \hspace{10px}
-  \rule{\dimexpr
-  \textwidth-\beamer@rightmargin
-  }{0.5pt}%
-  \vspace{2px}
-  % next 'empty' line is mandatory!
-  {}
-\end{minipage}
+\definecolor{pbblue}{RGB}{\rgbcolortheme}% filling color for the progress bar
+\definecolor{pbgray}{HTML}{575757}% background color for the progress bar
+\newcommand{\insertprogressbar}{
+    \progressbar@tmpcounta=\insertframenumber
+    \progressbar@tmpcountb=\inserttotalframenumber
+    \progressbar@tmpdim=\progressbar@pbwd
+    \multiply\progressbar@tmpdim by \progressbar@tmpcounta
+    \divide\progressbar@tmpdim by \progressbar@tmpcountb
+
+  \begin{tikzpicture}[rounded corners=0pt,very thin]
+
+    \shade[top color=pbgray!20,bottom color=pbgray!20,middle color=pbgray!50]
+      (0pt, 0pt) rectangle ++ (\progressbar@pbwd, \progressbar@pbht);
+
+      \shade[draw=pbblue,top color=pbblue,bottom color=pbblue,middle color=pbblue] %
+        (0pt, 0pt) rectangle ++ (\progressbar@tmpdim, \progressbar@pbht);
+
+    \draw[color=normal text.fg!50]  
+      (0pt, 0pt) rectangle (\progressbar@pbwd, \progressbar@pbht) 
+        node[pos=0.5,color=normal text.fg] {\textnormal{%
+             \pgfmathparse{\insertframenumber*100/\inserttotalframenumber}%
+             %\pgfmathprintnumber[fixed,precision=2]{\pgfmathresult}\,\%%
+        }%
+    };
+  \end{tikzpicture}%
 }
 
 \newcommand{\noteslide}{%to be used after every \framebreak
@@ -446,16 +458,18 @@
 	\end{beamercolorbox}%
 
 	\begin{beamercolorbox}[wd=.76\paperwidth,ht=2.25ex,dp=1ex,center]{section in head/foot}%
+	\begin{textblock}{5}(3,15.25)
 		\insertprogressbar
+	\end{textblock}
 		\usebeamerfont{section in head/foot} \footsubject{} 
-		\end{beamercolorbox}%
+	\end{beamercolorbox}%
 
-		\begin{beamercolorbox}[wd=.10\paperwidth,ht=2.27ex,dp=1ex,right]{section in head/foot}%
-			\usebeamerfont{section in head/foot}\hspace*{2em}
-			\hspace{-10px}\textbf{\insertframenumber{}} \hspace*{2ex}
-		\end{beamercolorbox}}%
+	\begin{beamercolorbox}[wd=.10\paperwidth,ht=2.27ex,dp=1ex,right]{section in head/foot}%
+		\usebeamerfont{section in head/foot}\hspace*{2em}
+		\hspace{-10px}\textbf{\insertframenumber{}} \hspace*{2ex}
+	\end{beamercolorbox}}%
 		\vskip0pt%
-		}
+	}
 
 \setbeamertemplate{navigation symbols}{}
  \pgfdeclareimage[width=2.5cm]{le-logo}{\firstlogo}
