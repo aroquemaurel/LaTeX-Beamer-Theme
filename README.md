@@ -1,3 +1,3 @@
 # beamer-theme
-A theme for beamer
+A theme for beamer with an example of use
 
