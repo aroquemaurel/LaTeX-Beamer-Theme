@@ -1,0 +1,87 @@
+\useoutertheme[subsection=false,shadow]{miniframes}
+\useinnertheme{default}
+\usefonttheme{serif}
+\usepackage{palatino}
+\usepackage{calc}
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+\setbeamerfont{title like}{shape=\scshape}
+\setbeamerfont{frametitle}{shape=\scshape}
+
+\setbeamercolor*{block body alerted}{bg=normal text.bg!90!black}
+\setbeamercolor*{block body}{bg=normal text.bg!90!black}
+\setbeamercolor*{block body example}{bg=normal text.bg!90!black}
+\setbeamercolor*{block title alerted}{use={normal text,alerted text},fg=alerted text.fg!75!normal text.fg,bg=normal text.bg!75!black}
+\setbeamercolor*{block title}{bg=blue}
+\setbeamercolor*{block title example}{use={normal text,example text},fg=example text.fg!75!normal text.fg,bg=normal text.bg!75!black}
+
+\setbeamercolor*{lower separation line head}{bg=bg-color} 
+\setbeamercolor*{normal text}{fg=black,bg=white} 
+\setbeamercolor*{alerted text}{fg=red} 
+\setbeamercolor*{example text}{fg=green-avantages} 
+\setbeamercolor*{structure}{fg=black} 
+ 
+\setbeamercolor*{palette tertiary}{fg=black,bg=black!10} 
+\setbeamercolor*{palette quaternary}{fg=black,bg=black!10} 
+
+\setbeamertemplate{footline}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.16\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm%
+	plus1fill,rightskip=.3cm,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}A. de Roquemaurel
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.70\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm%
+	plus1fil,center]{author in head/foot}%
+	\usebeamerfont{section in head/foot} \footsubject{} 
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.24\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm%
+	plus1fil,center]{author in head/foot}%
+	\usebeamerfont{frame number in head/foot}\insertframenumber
+  \end{beamercolorbox}}%
+  \vskip0pt%
+  \insertprogressbar
+}
+
+\setbeamertemplate{navigation symbols}{}
+
+\renewcommand{\(}{\begin{columns}}
+\renewcommand{\)}{\end{columns}}
+\newcommand{\<}[1]{\begin{column}{#1}}
+\renewcommand{\>}{\end{column}}
+
+\definecolor{lightgr}{rgb}{0.85 0.85 1}
+
+\newcount\progressbar@tmpcounta% auxiliary counter
+\newcount\progressbar@tmpcountb% auxiliary counter
+\newdimen\progressbar@pbht %progressbar height
+\newdimen\progressbar@pbwd %progressbar width
+\newdimen\progressbar@tmpdim % auxiliary dimension
+
+\progressbar@pbwd=\paperwidth
+\progressbar@pbht=1.5px
+
+\definecolor{pbgray}{HTML}{575757}% background color for the progress bar
+\newcommand{\insertprogressbar}{
+    \progressbar@tmpcounta=\insertframenumber
+    \progressbar@tmpcountb=\inserttotalframenumber
+    \progressbar@tmpdim=\progressbar@pbwd
+    \multiply\progressbar@tmpdim by \progressbar@tmpcounta
+    \divide\progressbar@tmpdim by \progressbar@tmpcountb
+
+  \begin{tikzpicture}[rounded corners=0pt,very thin]
+    \shade[top color=pbgray!20,bottom color=pbgray!20,middle color=pbgray!50]
+      (0pt, 0pt) rectangle ++ (\progressbar@pbwd, \progressbar@pbht);
+
+      \shade[draw=bg-color,top color=bg-color,bottom color=bg-color,middle color=bg-color] %
+        (0pt, 0pt) rectangle ++ (\progressbar@tmpdim, \progressbar@pbht);
+
+    \draw[color=normal text.fg!50]  
+      (0pt, 0pt) rectangle (\progressbar@pbwd, \progressbar@pbht) 
+        node[pos=0.5,color=normal text.fg] {\textnormal{%
+             \pgfmathparse{\insertframenumber*100/\inserttotalframenumber}%
+        }%
+    };
+  \end{tikzpicture}%
+}

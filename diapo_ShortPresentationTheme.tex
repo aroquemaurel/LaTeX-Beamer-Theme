@@ -1,0 +1,110 @@
+\documentclass[xcolor=x11names,compress]{beamer}
+
+%% General document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{listings}
+\usepackage{epstopdf}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{svg}
+\usepackage{calc}
+\usetikzlibrary{decorations.fractals, calc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{bg-color}{HTML}{F26E27}
+\definecolor{green-avantages}{HTML}{23B854}
+\newcommand{\firstlogo}{images/m2dl.png}
+\newcommand{\secondlogo}{images/ups.jpg}
+\newcommand{\footsubject}{My subject} % Subject in footer
+
+%% Beamer Layout %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<presentation> {
+  \usetheme{ShortPresentation}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamercovered{invisible}
+
+\title[] % Not required. If title is too long 
+{A beautiful title}
+\subtitle{A subtitle}
+
+\author[
+People A\\
+People B\\
+People C
+] % 
+{People A\\ 
+People B\\ 
+People C}
+
+\institute[] 
+{
+  Universit\'e Toulouse III -- Paul Sabatier \\
+  M1 Informatique -- Développement Logiciel 
+  \vspace{-10px}
+}
+\date[ ~ ~ ~ 05 / 03 / 2015] % In footer 
+{Vendredi 06 Mars 2015}
+\AtBeginSection[]{%
+  \begin{frame}<beamer>
+  \tableofcontents[currentsection, hideallsubsections]
+  \end{frame}
+}
+
+
+\begin{document}
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	\begin{frame}{Introduction}
+		\begin{itemize}
+			\item \ldots 
+			\item \ldots 
+			\item \ldots
+		\end{itemize}
+	\end{frame}
+	\section{First section}
+	\subsection{First subsection}
+	\begin{frame}{Slide A}
+		
+	\end{frame}
+	\subsection{Second subsection}
+
+	\begin{frame}{Slide B}
+		\begin{block}{A super block}
+			A block	
+		\end{block}
+		\begin{alertblock}{Alert, Alert !}
+			An alert block
+		\end{alertblock}
+
+		\begin{exampleblock}{Coooool}
+			An example block	
+		\end{exampleblock}
+	\end{frame}
+	\section{Second section}
+	\subsection{First subsection}
+	\begin{frame}{Slide B}
+	\end{frame}
+	\subsection{Second subsection}
+	\begin{frame}{Slide B}
+	\end{frame}
+	\section{Last section}
+	\subsection{First subsection}
+	\begin{frame}{Slide B}
+	\end{frame}
+	\subsection{Second subsection}
+	\begin{frame}{Slide B}
+	\end{frame}
+	\section*{Conclude}
+	\begin{frame}{Conclude}
+	\end{frame}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+\end{document}
