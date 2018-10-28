@@ -1,0 +1,60 @@
+\documentclass{beamer}
+\usepackage{listings}
+\usepackage{mdframed}
+\usepackage{tikz}
+\usepackage{pdfpages}
+\usepackage[overlay,absolute]{textpos}
+
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+
+\makeatletter
+\hypersetup{pdfpagemode=FullScreen}
+
+\newcommand{\firstlogo}{../images/m2dl.png}
+\newcommand{\secondlogo}{../images/ups.jpg}
+\newcommand{\footsubject}{My subject} % Subject in footer
+
+\newcommand{\rgbcolortheme}{75,106,149}
+
+\mode<presentation> {
+	\usepackage{../../beamerthemeLecture}
+}
+
+\title[] % Not required. If title is too long 
+{A beautiful title}
+\subtitle{A subtitle}
+
+\author[
+People A\\
+People B\\
+People C
+] % 
+{People A\\ 
+People B\\ 
+People C}
+
+\institute[] 
+{
+  Universit\'e Toulouse III -- Paul Sabatier \\
+  M1 Informatique -- Développement Logiciel 
+  \vspace{-10px}
+}
+\date[ ~ ~ ~ 05 / 03 / 2015] % In footer 
+{Vendredi 06 Mars 2015}
+
+
+ % Toc for each section
+\AtBeginSection[] {
+  \begin{frame}<beamer>{Ligne directrice}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\input{../inc/content-example.tex}
